@@ -27,7 +27,8 @@ Designed for reliability with graceful fallbacks for remote images.
 Add your screenshots here:
 - Dark theme:
   ![image](https://github.com/MdSaifAli063/Modern-Image-Gallery-with-Lightbox/blob/0325d54dcffa1db8d8dd4c23555d87a5decd7487/Screenshot%202025-09-02%20014230.png)
-- Light theme: `docs/preview-light.jpg`
+- Light theme:
+  ![image](https://github.com/MdSaifAli063/Modern-Image-Gallery-with-Lightbox/blob/8f2fbd35dc8961239ecebd4eb7e2ac508c677168/Screenshot%202025-09-02%20013138.png)
 
 ```text
 docs/
