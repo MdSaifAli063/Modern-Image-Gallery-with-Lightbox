@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Image Gallery with Lightbox</title>
+    <meta name="description" content="A modern, responsive image gallery with lightbox functionality. Features include smooth transitions, zoom capabilities, keyboard controls, and touch support.">
+    <meta name="keywords" content="image gallery, lightbox, responsive design, zoom, touch support">
+
+    <!-- Help prevent hotlink-related 403s -->
+    <meta name="referrer" content="no-referrer">
+
+    <!-- Speed and stability for Unsplash -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Gallery</h1>
+            <p>Click on any image to view in lightbox mode</p>
+        </header>
+
+        <div class="gallery-controls" role="region" aria-label="Gallery controls">
+            <div class="controls-left">
+                <div class="search-box">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input type="text" id="search" placeholder="Search images..." aria-label="Search images">
+                    <button id="clear-search" class="icon-btn" aria-label="Clear search" title="Clear">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="category-filters" role="tablist" aria-label="Category filters">
+                    <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All</button>
+                    <button class="filter-btn" data-category="nature" role="tab" aria-selected="false">Nature</button>
+                    <button class="filter-btn" data-category="architecture" role="tab" aria-selected="false">Architecture</button>
+                    <button class="filter-btn" data-category="city" role="tab" aria-selected="false">City</button>
+                    <button class="filter-btn" data-category="favorites" role="tab" aria-selected="false">
+                        <i class="fas fa-heart" aria-hidden="true"></i> Favorites
+                    </button>
+                </div>
+            </div>
+
+            <div class="controls-right">
+                <div class="sort-options">
+                    <label for="sort" class="sr-only">Sort by</label>
+                    <select id="sort" aria-label="Sort images">
+                        <option value="default">Sort by</option>
+                        <option value="name">Name</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+
+                <div class="density">
+                    <label for="cardSizeRange" title="Adjust card size">Size</label>
+                    <input type="range" id="cardSizeRange" min="180" max="320" step="10" value="220" aria-label="Card size">
+                </div>
+
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="resultsCount" class="results-count" aria-live="polite"></div>
+
+        <div class="gallery" role="list" aria-label="Image gallery">
+            <!-- Nature -->
+            <div class="gallery-item" data-id="nature-landscape" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" alt="Nature Landscape" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Nature Landscape</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="mountain-view" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Mountain View" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Mountain View</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="forest-path" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Forest Path" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Forest Path</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="waterfall" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://source.unsplash.com/1200x825/?nature,waterfall" alt="Waterfall" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Waterfall</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="sunrise-beach" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Sunrise Beach" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Sunrise Beach</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="desert-dunes" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1200&q=80" alt="Desert Dunes" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Desert Dunes</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="aurora-night" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=1200&q=80" alt="Aurora Night" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Aurora Night</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="autumn-forest" data-category="nature" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Autumn Forest" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Autumn Forest</h3>
+                    <span class="category">Nature</span>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="gallery-item" data-id="modern-architecture" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" alt="Modern Architecture" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Modern Architecture</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="modern-building" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=1200&q=80" alt="Modern Building" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Modern Building</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="glass-facade" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" alt="Glass Facade" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Glass Facade</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="spiral-stairs" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=80" alt="Spiral Stairs" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Spiral Stairs</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="classic-cathedral" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" alt="Classic Cathedral" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Classic Cathedral</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="minimal-interior" data-category="architecture" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=80" alt="Minimal Interior" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Minimal Interior</h3>
+                    <span class="category">Architecture</span>
+                </div>
+            </div>
+
+            <!-- City -->
+            <div class="gallery-item" data-id="city-lights" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=80" alt="City Lights" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>City Lights</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="city-skyline" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?auto=format&fit=crop&w=1200&q=80" alt="City Skyline" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>City Skyline</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="street-night" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://source.unsplash.com/1200x825/?city,night,neon" alt="Street Night" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Street Night</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="iconic-bridge" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Iconic Bridge" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Iconic Bridge</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="subway-station" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://source.unsplash.com/1200x825/?subway,station" alt="Subway Station" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Subway Station</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="aerial-downtown" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://source.unsplash.com/1200x825/?city,skyline,aerial" alt="Aerial Downtown" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Aerial Downtown</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-id="market-alley" data-category="city" role="listitem" tabindex="0">
+                <div class="gallery-item-inner">
+                    <img src="https://source.unsplash.com/1200x825/?city,market,alley" alt="Market Alley" loading="lazy">
+                    <button class="favorite-btn icon-btn" aria-pressed="false" title="Add to favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item-info">
+                    <h3>Market Alley</h3>
+                    <span class="category">City</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox Image">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-info">
+                <span class="image-counter"></span>
+                <span class="image-size"></span>
+                <span class="image-resolution"></span>
+            </div>
+        </div>
+        <button class="lightbox-close icon-btn" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev icon-btn" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next icon-btn" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="lightbox-zoom-in icon-btn" aria-label="Zoom in">
+            <i class="fas fa-search-plus"></i>
+        </button>
+        <button class="lightbox-zoom-out icon-btn" aria-label="Zoom out">
+            <i class="fas fa-search-minus"></i>
+        </button>
+        <button class="lightbox-rotate icon-btn" aria-label="Rotate">
+            <i class="fas fa-redo"></i>
+        </button>
+        <button class="lightbox-fullscreen icon-btn" aria-label="Toggle fullscreen">
+            <i class="fas fa-expand"></i>
+        </button>
+        <button class="lightbox-download icon-btn" aria-label="Download image">
+            <i class="fas fa-download"></i>
+        </button>
+        <button class="lightbox-share icon-btn" aria-label="Share image" title="Share">
+            <i class="fas fa-share-alt"></i>
+        </button>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>Made in India</p>
+        </div>
+    </footer>
+
+    <!-- Universal image fallback: if any image fails, swap to a reliable placeholder -->
+    <script>
+      (function () {
+        const imgs = document.querySelectorAll('.gallery-item img');
+        imgs.forEach((img, idx) => {
+          // Help avoid hotlink 403s and speed up decode
+          try { img.decoding = 'async'; } catch (e) {}
+          try { img.referrerPolicy = 'no-referrer'; } catch (e) {}
+
+          const seed = img.closest('.gallery-item')?.dataset.id || 'image-' + idx;
+          const fallbackSrc = `https://picsum.photos/seed/${encodeURIComponent(seed)}/1200/825`;
+
+          const applyFallback = () => {
+            if (img.dataset.fallbackApplied === '1') return;
+            img.dataset.fallbackApplied = '1';
+            img.src = fallbackSrc;
+            img.classList.add('fallback-img');
+          };
+
+          img.addEventListener('error', applyFallback, { once: true });
+        });
+      })();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
