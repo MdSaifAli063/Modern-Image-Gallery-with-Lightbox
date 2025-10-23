@@ -35,7 +35,6 @@ docs/
  └─ preview-light.jpg
 ```
 
-
 ## 🚀 Quick Start
 
 - Download or clone the project.
