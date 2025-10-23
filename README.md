@@ -61,13 +61,13 @@ docs/
 - Density: Adjust card size via a range slider.
 - Theme Toggle: Dark/Light switch via the moon icon.
 - Lightbox:
-Next/Previous
-Zoom In/Out
-Rotate
-Fullscreen
-Download
-Share
-Caption and image info panel
+- Next/Previous
+- Zoom In/Out
+- Rotate
+- Fullscreen
+- Download
+- Share
+- Caption and image info panel
 
 🛡️ Image Reliability
 
