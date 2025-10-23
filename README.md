@@ -37,14 +37,14 @@ docs/
 ```
 
 
-🚀 Quick Start
+## 🚀 Quick Start
 
-Download or clone the project.
-Open index.html in your browser.
-(Optional) Serve locally for better caching:
-Python: python3 -m http.server 8080
-Node: npx serve
-That’s it—no build step required.
+- Download or clone the project.
+- Open index.html in your browser.
+- (Optional) Serve locally for better caching:
+- Python: python3 -m http.server 8080
+- Node: npx serve
+- That’s it—no build step required.
 
 🗂️ Project Structure
 .
