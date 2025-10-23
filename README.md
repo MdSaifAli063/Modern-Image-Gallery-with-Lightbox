@@ -34,7 +34,7 @@ Add your screenshots here:
 docs/
  ├─ preview-dark.jpg
  └─ preview-light.jpg
-
+```
 
 
 🚀 Quick Start
