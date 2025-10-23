@@ -45,12 +45,13 @@ docs/
 - Node: npx serve
 - That’s it—no build step required.
 
-🗂️ Project Structure
+## 🗂️ Project Structure
+```
 .
 ├─ index.html        # Gallery markup + fallback logic
 ├─ style.css         # Elegant UI theme (dark/light) + components
 └─ script.js         # Lightbox and UI behaviors
-
+```
 
 🧭 Features
 
