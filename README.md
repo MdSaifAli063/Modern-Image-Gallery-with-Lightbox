@@ -68,7 +68,7 @@ docs/
 - Share
 - Caption and image info panel
 
-🛡️ Image Reliability
+## 🛡️ Image Reliability
 
 Some corporate networks or ad-blockers can disrupt hotlinking or the Unsplash random endpoint. This gallery includes:
 
