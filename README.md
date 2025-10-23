@@ -53,14 +53,14 @@ docs/
 └─ script.js         # Lightbox and UI behaviors
 ```
 
-🧭 Features
+## 🧭 Features
 
-Search: Type in the search box to filter by image title/category.
-Category Filters: All, Nature, Architecture, City, Favorites.
-Sort: By Name or Category.
-Density: Adjust card size via a range slider.
-Theme Toggle: Dark/Light switch via the moon icon.
-Lightbox:
+- Search: Type in the search box to filter by image title/category.
+- Category Filters: All, Nature, Architecture, City, Favorites.
+- Sort: By Name or Category.
+- Density: Adjust card size via a range slider.
+- Theme Toggle: Dark/Light switch via the moon icon.
+- Lightbox:
 Next/Previous
 Zoom In/Out
 Rotate
