@@ -146,18 +146,18 @@ body[data-theme="light"] {
 ```
 Card density: default range is 180–320px wide; you can tweak min/max in index.html on #cardSizeRange or adapt grid with --card-min in CSS.
 
-♿ Accessibility
+## ♿ Accessibility
 
-Landmarks and roles: role="region", role="list", role="listitem", role="dialog"
-ARIA labels and live regions for results count
-Focus ring for keyboard users
-Reduced motion support via prefers-reduced-motion
-Alt text on images
-Keyboard (typical defaults):
-Esc: Close lightbox
-←/→: Previous/Next image
-Enter/Space on a focused card: Open lightbox
-Tab/Shift+Tab: Navigate controls
+- Landmarks and roles: role="region", role="list", role="listitem", role="dialog"
+- ARIA labels and live regions for results count
+- Focus ring for keyboard users
+- Reduced motion support via prefers-reduced-motion
+- Alt text on images
+- Keyboard (typical defaults):
+- Esc: Close lightbox
+- ←/→: Previous/Next image
+- Enter/Space on a focused card: Open lightbox
+- Tab/Shift+Tab: Navigate controls
 Note: Ensure your script.js includes/keeps these bindings.
 
 ⚙️ Performance
