@@ -189,7 +189,7 @@ Images not loading:
 - Confirm script.js is included and error-free in console.
 - Check button IDs/classes match those in index.html.
 
-📄 License
+## 📄 License
 
 Add your preferred license here (MIT recommended). If you include Unsplash images, ensure you follow their guidelines and attribution where required.
 
