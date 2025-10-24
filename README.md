@@ -160,13 +160,13 @@ Card density: default range is 180–320px wide; you can tweak min/max in index.
 - Tab/Shift+Tab: Navigate controls
 Note: Ensure your script.js includes/keeps these bindings.
 
-⚙️ Performance
+## ⚙️ Performance
 
-loading="lazy" on images
-decoding="async" set via JS
-Preconnects to Unsplash endpoints
-Referrer Policy to reduce 403s
-Lightweight styles and transitions
+- loading="lazy" on images
+- decoding="async" set via JS
+- Preconnects to Unsplash endpoints
+- Referrer Policy to reduce 403s
+- Lightweight styles and transitions
 
 📦 Deployment
 
