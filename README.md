@@ -112,14 +112,16 @@ Tips:
 - Keep alt descriptive for accessibility.
 - Use a stable data-id so the fallback “seed” generates consistent placeholders.
 
-🎨 Theming & Customization
+## 🎨 Theming & Customization
 
 Theme is controlled via CSS variables and a body attribute.
-
+<br>
 Force light theme by default:
+```css
 <body data-theme="light">
-
+```
 Variables you can customize in style.css:
+```css
 :root {
   --bg: #0c1022;
   --surface: #141a2d;
@@ -141,7 +143,7 @@ body[data-theme="light"] {
   --accent: #ef476f;
   /* ... */
 }
-
+```
 Card density: default range is 180–320px wide; you can tweak min/max in index.html on #cardSizeRange or adapt grid with --card-min in CSS.
 
 ♿ Accessibility
