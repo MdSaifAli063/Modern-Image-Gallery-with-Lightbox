@@ -168,14 +168,14 @@ Note: Ensure your script.js includes/keeps these bindings.
 - Referrer Policy to reduce 403s
 - Lightweight styles and transitions
 
-📦 Deployment
+## 📦 Deployment
 
 This is a static site—deploy anywhere:
 
-GitHub Pages
-Netlify (drag & drop)
-Vercel (import repo)
-Ensure you serve over HTTPS to avoid mixed content issues and to keep CDN images accessible.
+- GitHub Pages
+- Netlify (drag & drop)
+- Vercel (import repo)
+- Ensure you serve over HTTPS to avoid mixed content issues and to keep CDN images accessible.
 
 🧰 Troubleshooting
 
