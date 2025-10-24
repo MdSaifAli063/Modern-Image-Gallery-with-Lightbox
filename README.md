@@ -189,13 +189,14 @@ Images not loading:
 - Confirm script.js is included and error-free in console.
 - Check button IDs/classes match those in index.html.
 
-🙏 Credits
-
-Photos: Unsplash (https://unsplash.com)
-Fallback images: Picsum Photos (https://picsum.photos)
-Icons: Font Awesome (https://fontawesome.com)
-Made with ❤️ in India.
-
 📄 License
 
 Add your preferred license here (MIT recommended). If you include Unsplash images, ensure you follow their guidelines and attribution where required.
+
+
+## 🙏 Credits
+
+- Photos: Unsplash (https://unsplash.com)
+- Fallback images: Picsum Photos (https://picsum.photos)
+- Icons: Font Awesome (https://fontawesome.com)
+Made with ❤️ in India.
