@@ -76,7 +76,7 @@ Some corporate networks or ad-blockers can disrupt hotlinking or the Unsplash ra
 - Preconnects for faster stable fetches
 - Universal fallback: if any image fails, it swaps to a Picsum placeholder of matching size
 - To change the fallback provider, modify the tiny inline script in index.html:
-```
+```js
 const fallbackSrc = `https://picsum.photos/seed/${encodeURIComponent(seed)}/1200/825`;
 ```
 
@@ -108,9 +108,9 @@ Add a new card inside the .gallery list:
 
 Tips:
 
-Prefer fixed images from images.unsplash.com for consistency.
-Keep alt descriptive for accessibility.
-Use a stable data-id so the fallback “seed” generates consistent placeholders.
+- Prefer fixed images from images.unsplash.com for consistency.
+- Keep alt descriptive for accessibility.
+- Use a stable data-id so the fallback “seed” generates consistent placeholders.
 
 🎨 Theming & Customization
 
