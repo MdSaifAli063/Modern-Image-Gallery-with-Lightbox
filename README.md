@@ -177,17 +177,17 @@ This is a static site—deploy anywhere:
 - Vercel (import repo)
 - Ensure you serve over HTTPS to avoid mixed content issues and to keep CDN images accessible.
 
-🧰 Troubleshooting
+## 🧰 Troubleshooting
 
 Images not loading:
-Some networks block source.unsplash.com random endpoint—prefer images.unsplash.com with explicit image IDs or your own assets.
-Keep the fallback enabled or replace it with your own placeholder.
-CORS/403 errors:
-The referrer meta is already set to no-referrer.
-Serve from HTTPS and avoid modifying URL params that Unsplash expects.
-Lightbox controls not responding:
-Confirm script.js is included and error-free in console.
-Check button IDs/classes match those in index.html.
+- Some networks block source.unsplash.com random endpoint—prefer images.unsplash.com with explicit image IDs or your own assets.
+- Keep the fallback enabled or replace it with your own placeholder.
+- CORS/403 errors:
+- The referrer meta is already set to no-referrer.
+- Serve from HTTPS and avoid modifying URL params that Unsplash expects.
+- Lightbox controls not responding:
+- Confirm script.js is included and error-free in console.
+- Check button IDs/classes match those in index.html.
 
 🙏 Credits
 
