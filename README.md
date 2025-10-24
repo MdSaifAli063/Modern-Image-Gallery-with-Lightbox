@@ -199,4 +199,5 @@ Add your preferred license here (MIT recommended). If you include Unsplash image
 - Photos: Unsplash (https://unsplash.com)
 - Fallback images: Picsum Photos (https://picsum.photos)
 - Icons: Font Awesome (https://fontawesome.com)
+  <br>
 Made with ❤️ in India.
