@@ -82,8 +82,8 @@ const fallbackSrc = `https://picsum.photos/seed/${encodeURIComponent(seed)}/1200
 
 Examples:
 
-Placehold: https://placehold.co/1200x825?text=Image
-Your CDN: https://cdn.example.com/placeholders/${seed}.jpg
+- Placehold: https://placehold.co/1200x825?text=Image
+- Your CDN: https://cdn.example.com/placeholders/${seed}.jpg
 
 🧩 Add or Edit Images
 
