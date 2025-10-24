@@ -72,13 +72,13 @@ docs/
 
 Some corporate networks or ad-blockers can disrupt hotlinking or the Unsplash random endpoint. This gallery includes:
 
-Referrer policy to reduce hotlink-related 403s
-Preconnects for faster stable fetches
-Universal fallback: if any image fails, it swaps to a Picsum placeholder of matching size
-To change the fallback provider, modify the tiny inline script in index.html:
-
+- Referrer policy to reduce hotlink-related 403s
+- Preconnects for faster stable fetches
+- Universal fallback: if any image fails, it swaps to a Picsum placeholder of matching size
+- To change the fallback provider, modify the tiny inline script in index.html:
+```
 const fallbackSrc = `https://picsum.photos/seed/${encodeURIComponent(seed)}/1200/825`;
-
+```
 
 Examples:
 
