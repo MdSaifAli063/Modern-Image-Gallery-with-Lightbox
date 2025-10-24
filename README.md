@@ -85,10 +85,10 @@ Examples:
 - Placehold: https://placehold.co/1200x825?text=Image
 - Your CDN: https://cdn.example.com/placeholders/${seed}.jpg
 
-🧩 Add or Edit Images
+## 🧩 Add or Edit Images
 
 Add a new card inside the .gallery list:
-
+```html
 <div class="gallery-item" data-id="my-id" data-category="nature" role="listitem" tabindex="0">
   <div class="gallery-item-inner">
     <img src="https://images.unsplash.com/photo-XXXX?auto=format&fit=crop&w=1200&q=80" alt="Descriptive Title" loading="lazy">
@@ -104,7 +104,7 @@ Add a new card inside the .gallery list:
     <span class="category">Nature</span>
   </div>
 </div>
-
+```
 
 Tips:
 
